@@ -1,0 +1,3 @@
+MSCK-Net: Multiscale Chinese Knot Convolutional Network for Dim and Small Infrared Ship Detection
+
+The code will be updated later.
