@@ -1,0 +1,81 @@
+__include__: [
+  '../dataset/irship.yml',
+  '../runtime.yml',
+  '../base/dataloader_dfine.yml',
+  '../base/optimizer.yml',
+  '../base/deim_en.yml',
+  '../base/dfine_hgnetv2.yml',
+]
+
+print_freq: 500
+output_dir: ./msck/msck-s
+
+
+DEIM:
+  backbone: HGNetv2_MSCK
+
+HGNetv2_MSCK:
+  name: 'B1_1'
+  return_idx: [1, 2, 3]
+  freeze_at: -1
+  freeze_norm: False
+  use_lab: True
+  pretrained: False
+
+
+HybridEncoder:
+  in_channels: [256, 320, 512]
+  hidden_dim: 224
+  use_encoder_idx: [2]
+  expansion: 0.34
+  depth_mult: 0.5
+
+
+DFINETransformer:
+  feat_channels: [ 224, 224, 224]
+  hidden_dim: 224
+  num_layers: 3
+  eval_idx: -1
+
+
+optimizer:
+  type: AdamW
+  params:
+    -
+      params: '^(?=.*backbone)(?!.*norm|bn).*$'
+      lr: 0.0004
+    -
+      params: '^(?=.*backbone)(?=.*norm|bn).*$'
+      lr: 0.0004
+      weight_decay: 0.
+    -
+      params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+      weight_decay: 0.
+
+  lr: 0.0008
+  betas: [0.9, 0.999]
+  weight_decay: 0.0001
+
+
+# Increase to search for the optimal ema
+epoches: 160 # 148 + 4n 160
+
+## Our LR-Scheduler
+flat_epoch: 18    # 4 + epoch // 2, e.g., 40 = 4 + 72 / 2
+no_aug_epoch: 12
+lr_gamma: 1.0
+
+train_dataloader:
+  total_batch_size: 4
+  dataset:
+    transforms:
+      policy:
+        epoch: [4, 18, 148]   # list  # 148
+  collate_fn:
+    mixup_epochs: [ 4, 18 ]
+    stop_epoch: 148
+    base_size_repeat: ~
+    ema_restart_decay: 0.9999
+
+val_dataloader:
+  total_batch_size: 4
