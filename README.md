@@ -2,8 +2,7 @@
   MSCK-Net: Multiscale Chinese Knot Convolutional Network for Dim and Small Infrared Ship Detection
 </h2>
 
-1. **NOTE:**
-由于将原项目的改进部分迁移到DEIMv2上，可能由于版本或者小数缩进问题，个别IRShip数据集的推理精度与论文略有差别（0.1%左右），但不影响模型结果。
+
 
 
 ## 1. Quick start
