@@ -21,11 +21,12 @@ pip install -r requirements.txt
 <summary>Custom Dataset</summary>
 
 1. **Organize Images:**
-The dataset used in this project can be downloaded from Baidu Netdisk:
+The dataset and model weights can be downloaded from Baidu Netdisk:
 
 - **Download Link:**
 - 通过网盘分享的文件：MSCK-DATA 链接: https://pan.baidu.com/s/1ZXgpMAxQVqSW0ZN4hz2fvg
 - **Extraction Code:** fxga
+- IRShip denotes the integrated original dataset, while IRShip-OA denotes the offline-augmented dataset constructed using the offline augmentation strategy described in this paper.
 
 Please download the dataset and organize it according to the following directory structure.
 
