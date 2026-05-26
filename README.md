@@ -21,8 +21,13 @@ pip install -r requirements.txt
 <summary>Custom Dataset</summary>
 
 1. **Organize Images:**
+The dataset used in this project can be downloaded from Baidu Netdisk:
 
-    Structure your dataset directories as follows:
+- **Download Link:**
+- 通过网盘分享的文件：MSCK-DATA 链接: https://pan.baidu.com/s/1ZXgpMAxQVqSW0ZN4hz2fvg
+- **Extraction Code:** fxga
+
+Please download the dataset and organize it according to the following directory structure.
 
     ```shell
     dataset/
