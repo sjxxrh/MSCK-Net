@@ -86,6 +86,15 @@ python tools/inference/torch_inf.py -c configs/deim_dfine/deim_hgnetv2_${model}_
   pages={1-18},
   }
 ```
+Since this dataset is derived from the following datasets, please refer to them as needed.
+- NUDT-SIRST-Sea：
+- https://github.com/TianhaoWu16/Multi-level-TransUNet-for-Space-based-Infrared-Tiny-ship-Detection
+- ISDD
+- https://github.com/yaqihan-9898
+- IRSDSS
+- https://github.com/greekinRoma/SMPISD-MTPNet
+- Maritime-SIRST
+- https://github.com/peerless66/Maritime-SIRST
 
 ## 5. Acknowledgement
 Our work is built upon [D-FINE](https://github.com/Peterande/D-FINE) , [DEIM](https://github.com/Intellindust-AI-Lab/DEIMv2) and [DEIMv2](https://www.shihuahuang.cn/DEIM/).
